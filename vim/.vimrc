@@ -18,8 +18,31 @@ Plugin 'gmarik/Vundle.vim'
 " ...
 
 " All of your Plugins must be added before the following line
+Plugin 'vim-scripts/indentpython.vim'
+Bundle 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" ignore some files
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" syntax highlighting
+let python_highlight_all=1
+syntax on
+
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_solarized_bg='light'
+let g:airline_theme='solarized'
 
 " Options
 set clipboard=unnamedplus
@@ -49,9 +72,6 @@ nnoremap <C-H> <C-W><C-H>
 set foldmethod=indent
 set foldlevel=99
 
-" Enable folding with the spacebar
-nnoremap <space> za
-
 " settings for python files
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -61,3 +81,7 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
+
+" autocompletion
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
