@@ -1,10 +1,10 @@
-# VIM jako IDE
+# VIM as an IDE
 
-Configi i rzeczy potrzebne do zainstalowania i przygotowania VIMa jako IDE.
+Here you will find all files and scripts needed to configure VIM as IDE to python development.
 
-## Potrzebne rzeczy
+## Requirements
 
-Najpierw trzeba się upewnić, że są zainstalowane wszystkie potrzebne rzeczy po stronie systemu:
+Firstly you need to be sure that all requirements are installed on your system.  
 
 ### Linux
 
@@ -18,13 +18,15 @@ sudo apt install -y cmake python3.11-dev
 brew install cmake
 ```
 
-## Instalacja konfiguracji
+## Installation and setup
 
-Wystarczy po prostu nadać atrybut wykonywalności dla `install.sh` i go odpalić
+Simply make `install.sh` executable and run it in terminal:
 
 ```shell
 chmod +x install.sh
 ./install.sh
 ```
 
-Skrypt zainstaluje wszystko co potrzebne i przeniesie potrzebne pliki w odpowiednie miejsca.
+Script should copy all files in proper places and execute commands to install all
+provided plugins in VIM.
+
