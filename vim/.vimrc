@@ -28,6 +28,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sansyrox/vim-python-virtualenv'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -77,11 +79,34 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
+    \ set textwidth=88 |
+    \ set colorcolumn=88 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
 
+" Python executable path
+let g:python3_host_prog='/usr/bin/python3.11'
+
+" Python things
+let g:pymode_run_bind='<F5>'
+imap <F5> <Esc>:w<CR>:!clear;python %<CR>
+
 " autocompletion
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Linting settings
+let g:ale_linters = {
+      \   'python': ['pylint'],
+      \}
+
+let g:ale_fixers = {
+      \    'python': ['black', 'isort'],
+      \}
+let g:ale_fix_on_save = 1
+
+" Keymaps
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>' :ALEFix<CR>
