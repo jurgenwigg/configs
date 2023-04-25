@@ -4,7 +4,7 @@ Here you will find all files and scripts needed to configure VIM as IDE to pytho
 
 ## Requirements
 
-Firstly you need to be sure that all requirements are installed on your system.  
+Firstly you need to be sure that all requirements are installed on your system.
 
 ### Linux
 
@@ -36,11 +36,16 @@ provided plugins in VIM.
 > with `python<version> -m venv <name of your venv>` command. Just before entering `vim`
 > you should activate created environment with `source <name of your venv>/bin/activate`
 > and install there required tools `pip install pylint black isort`.
- 
+
 - Linters
     - `Pylint` as a main linter
 - Formatters
     - `black` as a main general formatter
     - `isort` as a import sorter
 
+## Keymap
 
+NERDTreeFocus   <leader>n
+NERDTreeToggle  <leader>t
+ALEFix          <leader>'
+Go to definition/declaration    <leader>g

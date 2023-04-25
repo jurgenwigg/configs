@@ -90,7 +90,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 " Python executable path
-let g:python3_host_prog='/usr/bin/python3.11'
+let g:python3_host_prog='/opt/homebrew/bin/python3.11'
 
 " Python things
 let g:pymode_run_bind='<F5>'
