@@ -47,17 +47,21 @@ let g:airline_solarized_bg='light'
 let g:airline_theme='solarized'
 
 " Options
-set clipboard=unnamedplus
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
 set completeopt=noinsert,menuone,noselect
 set cursorline
 set hidden
 set mouse=a
 set number
-set relativenumber
 set splitbelow splitright
 set title
 set ttimeoutlen=0
 set wildmenu
+set backspace=indent,eol,start
 
 " Tabs size
 set expandtab
@@ -110,3 +114,6 @@ let g:ale_fix_on_save = 1
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>' :ALEFix<CR>
+
+" Remove trailing whitespaces on save
+autocmd BufWritePre * :%s/\s\+$//e
