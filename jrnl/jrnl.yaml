@@ -1,0 +1,24 @@
+colors:
+  body: none
+  date: none
+  tags: none
+  title: none
+default_hour: 9
+default_minute: 0
+editor: vim -c startinsert
+encrypt: false
+highlight: true
+indent_character: '|'
+journals:
+  default:
+    journal: ~/GitHub/journals/journal.txt
+  work:
+    journal: ~/GitHub/journals/work.txt
+    encrypt: true
+  brag:
+    journal: ~/GitHub/journals/brag.txt
+linewrap: 88
+tagsymbols: '#@'
+template: false
+timeformat: '%F %r'
+version: v3.3
