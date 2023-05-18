@@ -11,12 +11,12 @@ highlight: true
 indent_character: '|'
 journals:
   default:
-    journal: ~/GitHub/journals/journal.txt
+    journal: ~/GitProjects/GitHub/journals/journal.txt
   work:
-    journal: ~/GitHub/journals/work.txt
+    journal: ~/GitProjects/GitHub/journals/work.txt
     encrypt: true
   brag:
-    journal: ~/GitHub/journals/brag.txt
+    journal: ~/GitProjects/GitHub/journals/brag.txt
 linewrap: 88
 tagsymbols: '#@'
 template: false
