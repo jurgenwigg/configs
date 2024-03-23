@@ -90,7 +90,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 " Python executable path
-let g:python3_host_prog='/opt/homebrew/bin/python3.11'
+let g:python3_host_prog='/usr/bin/python3.11'
 
 " Python things
 let g:pymode_run_bind='<F5>'
@@ -109,7 +109,6 @@ let g:ale_fixers = {
       \    'python': ['black', 'isort'],
       \}
 let g:ale_fix_on_save = 1
-let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
 
 " Keymaps
 nnoremap <leader>n :NERDTreeFocus<CR>
