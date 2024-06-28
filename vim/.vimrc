@@ -21,7 +21,6 @@ Plugin 'gmarik/Vundle.vim'
 " All of your Plugins must be added before the following line
 Plugin 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
@@ -43,6 +42,12 @@ filetype plugin indent on    " required
 " ignore some files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
+" load Coverity command
+let coverity_vimrc = $HOME . "/.vim/coverity.vimrc"
+if filereadable(coverity_vimrc)
+  execute "source " . fnameescape(coverity_vimrc)
+endif
+
 " syntax highlighting
 let python_highlight_all=1
 syntax on
@@ -51,6 +56,7 @@ colorscheme solarized
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline_solarized_bg='light'
 let g:airline_theme='solarized'
 
@@ -70,7 +76,8 @@ set title
 set ttimeoutlen=0
 set wildmenu
 set backspace=indent,eol,start
-
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 " Tabs size
 set expandtab
 set shiftwidth=4
@@ -113,12 +120,17 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " Linting settings
 let g:ale_linters = {
       \   'python': ['pylint'],
+      \   'markdown': ['markdownlint', 'vale'],
       \}
 
 let g:ale_fixers = {
       \    'python': ['black', 'isort'],
+      \    'markdown': ['prettier'],
       \}
 let g:ale_fix_on_save = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " Keymaps
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -156,5 +168,3 @@ let g:vim_markdown_frontmatter = 1
 
 " Format strike-through text (wrapped in `~~`).
 let g:vim_markdown_strikethrough = 1
-let b:ale_linters = ['markdownlint', 'vale']
-let b:ale_fixers = ['prettier']
